@@ -1,0 +1,39 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+
+#GET     /                           controllers.HomeController.index()
+
+OPTIONS /*all                       controllers.HomeController.preflight(all)
+
+# Student routes
+GET     /student/list                           controllers.StudentController.list
+
+POST    /student/create                        controllers.StudentController.create
+GET     /student/get/:studentId                          controllers.StudentController.get(studentId: Int)
+POST    /student/update                        controllers.StudentController.update
+
+GET     /student/delete/:studentId                        controllers.StudentController.delete(studentId: Int)
+
+GET     /student/join1                          controllers.StudentController.getStudentNameWithUniversityName
+GET     /student/join2                          controllers.StudentController.getUniversityNameAndNoOfStudents
+
+
+
+# University routes
+GET     /university/list                           controllers.UniversityController.list
+
+POST    /university/create                        controllers.UniversityController.create
+
+GET     /university/get/:universityId                           controllers.UniversityController.get(universityId: Int)
+
+POST    /university/update                        controllers.UniversityController.update
+
+GET     /university/delete/:universityId                         controllers.UniversityController.delete(universityId: Int)
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
